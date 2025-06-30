@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>игры на Java Script</title>
+</head>
+<body>
+    <h1>Игры на Java Script</h1>
+    <h2>Игра - Викторина</h2>
+    <h2>Ответь на вопрос в всплывающем окошке и проверь правильность ответа!</h2>
+    <button onclick="refreshPage()">Сыграть ещё раз!</button>
+    <script src="./test.js"></script>
+    <script>
+        function refreshPage() {
+    location.reload();
+  }
+        const questions = [
+  { question: "Устройство для ввода текстовой информации в компьютер?", answer: "Клавиатура" },
+  { question: "Какой язык программирования самый популярный?", answer: "JavaScript" }
+];
+
+let score = 0;
+
+questions.forEach((q, i) => {
+  const userAnswer = prompt(q.question);
+  if (userAnswer.toLowerCase() === q.answer.toLowerCase()) {
+    score++;
+    alert("Верно!");
+  } else {
+    alert(`Неверно! Правильный ответ: ${q.answer}`);
+  }
+});
+alert(`Твой результат: ${score} из ${questions.length}`);
+
+    </script>
+</body>
+</html>

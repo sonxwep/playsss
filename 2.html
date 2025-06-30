@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>игры на Java Script</title>
+</head>
+<body>
+    <h1>Игры на Java Script</h1>
+    <h2>Игра - Угадай число</h2>
+    <h2>Попробуй угадать число, вводя его в всплывающее окошко, компьютер подскажет, больше или меньше!</h2>
+    <button onclick="refreshPage()">Сыграть ещё раз!</button>
+    <script src="./test.js"></script>
+    <script>
+        function refreshPage() {
+    location.reload();
+  }
+               const secretNumber = Math.floor(Math.random() * 20) + 1;
+        let attempts = 0;
+
+        function guessNumber() {
+            const guess = parseInt(prompt('Угадай число от 1 до 20:'));
+            
+            attempts++;
+
+            if (guess === secretNumber) {
+                alert(`Поздравляю! Ты угадал за ${attempts} попыток.`);
+            } else if (guess < secretNumber) {
+                alert('Больше!');
+                guessNumber();
+            } else {
+                alert('Меньше!');
+                guessNumber();
+            }
+        }
+
+        guessNumber();
+
+guessNumber();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>игры на Java Script</title>
+</head>
+<body>
+    <h1>Игры на Java Script</h1>
+    <h2>Игра - камень, ножницы, бумага</h2>
+    <h2>Введи в всплывающее окошко камень, ножницы или бумага и жди ответа своего соперника - компьютера!</h2>
+    <button onclick="refreshPage()">Сыграть ещё раз!</button>
+    <script src="./test.js"></script>
+    <script>
+        function refreshPage() {
+    location.reload();
+  }
+    const choices = ["камень", "ножницы", "бумага"];
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        
+        const userChoice = prompt("Выбери: камень, ножницы или бумага").toLowerCase();
+        
+        alert(`Компьютер выбрал: ${computerChoice}`);
+        
+        if (userChoice === computerChoice) {
+          alert("Ничья!");
+        } else if (
+          (userChoice === "камень" && computerChoice === "ножницы") ||
+          (userChoice === "ножницы" && computerChoice === "бумага") ||
+          (userChoice === "бумага" && computerChoice === "камень")
+        ) {
+          alert("Ты победил!");
+        } else {
+          alert("Компьютер победил!");
+        }
+        </script>
+</body>
+</html>
